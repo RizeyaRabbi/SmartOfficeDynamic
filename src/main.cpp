@@ -12,8 +12,8 @@ uint8_t mac[] = {0xAa, 0xBb, 0xCc, 0xDd, 0xEe, 0xFf};
 uint8_t ip[] = {192, 168, 0, 118};
 EthernetClient client;
 
-const uint8_t input[] = {22, 23, 24, 25, 26};
-const uint8_t output[] = {30, 31, 32, 33, 34};
+const uint8_t input[] = {22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37};
+const uint8_t output[] = {A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15};
 
 uint8_t inputStatus[arraySize(input)];
 uint8_t outputStatus[arraySize(output)];
@@ -521,7 +521,9 @@ void Controller::debugVariables()
   Serial.print(milliSecondsInOneSecond);
   Serial.print("\n");
 }
-Controller device[6];
+
+Controller device[16];
+
 void setup()
 {
   Serial.begin(9600);
@@ -538,10 +540,20 @@ void loop()
 {
   UpdateInputPinStatus(input, inputStatus);
   UpdateOutputPinStatus(output, outputStatus);
-  device[0].Automation(inputStatus[0], output[0], "TestDevice", 1);
-  device[1].Automation(inputStatus[1], output[1], "TestDevice", 1);
-  device[0].Automation(inputStatus[2], output[2], "TestDevice", 1);
-  device[1].Automation(inputStatus[3], output[3], "TestDevice", 1);
-  device[0].Automation(inputStatus[4], output[4], "TestDevice", 1);
-  device[1].Automation(inputStatus[5], output[5], "TestDevice", 1);
+  device[0].Automation(inputStatus[0], output[0], "TestDevice0", 1);
+  device[1].Automation(inputStatus[1], output[1], "TestDevice1", 1);
+  device[2].Automation(inputStatus[2], output[2], "TestDevice2", 1);
+  device[3].Automation(inputStatus[3], output[3], "TestDevice3", 1);
+  device[4].Automation(inputStatus[4], output[4], "TestDevice4", 1);
+  device[5].Automation(inputStatus[5], output[5], "TestDevice5", 1);
+  device[6].Automation(inputStatus[6], output[6], "TestDevice6", 1);
+  device[7].Automation(inputStatus[7], output[7], "TestDevice7", 1);
+  device[8].Automation(inputStatus[8], output[8], "TestDevice8", 1);
+  device[9].Automation(inputStatus[9], output[9], "TestDevice9", 1);
+  device[10].Automation(inputStatus[10], output[10], "TestDevice10", 1);
+  device[11].Automation(inputStatus[11], output[11], "TestDevice11", 1);
+  device[12].Automation(inputStatus[12], output[12], "TestDevice12", 1);
+  device[13].Automation(inputStatus[13], output[13], "TestDevice13", 1);
+  device[14].Automation(inputStatus[14], output[14], "TestDevice14", 1);
+  device[15].Automation(inputStatus[15], output[15], "TestDevice15", 1);
 }
